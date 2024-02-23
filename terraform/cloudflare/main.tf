@@ -34,6 +34,15 @@ resource "cloudflare_record" "terraform_managed_resource_dash" {
   zone_id = var.personal_cloudflare.zone_id
 }
 
+resource "cloudflare_record" "terraform_managed_resource_db" {
+  name    = "db"
+  proxied = true
+  ttl     = 1
+  type    = "A"
+  value   = var.personal_cloudflare.public_ip
+  zone_id = var.personal_cloudflare.zone_id
+}
+
 resource "cloudflare_record" "terraform_managed_resource_integration" {
   name    = "integration"
   proxied = true
@@ -87,3 +96,4 @@ resource "cloudflare_record" "terraform_managed_resource_yacht" {
   value   = var.personal_cloudflare.public_ip
   zone_id = var.personal_cloudflare.zone_id
 }
+

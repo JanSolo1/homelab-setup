@@ -54,3 +54,4 @@ vendor
 .ruby-version
 .terraform.lock.hcl
 secrets.tfvars
+vars-config.hcl
