@@ -20,13 +20,16 @@ The `terragrunt` directory contains the Terragrunt configurations. The `dev` and
     │   │   └── main.tf
     └── terragrunt
         ├── dev
-        │   └── app
-        │       ├── terragrunt.hcl
-        │       └── secrets.tfvars
+        │   ├── app
+        │   │   ├── terragrunt.hcl
+        │   │   └── env.hcl
+        │   └── stage.hcl
+        │
         ├── prod
-        │   └── app
-        │       ├── terragrunt.hcl
-        │       └── secrets.tfvars
+        │   ├── app
+        │   │   ├── terragrunt.hcl
+        │   │   └── env.hcl
+        │   └── stage.hcl
         │ 
         ├── root-config.hcl
         └── vars-config.hcl
@@ -35,7 +38,7 @@ The `terragrunt` directory contains the Terragrunt configurations. The `dev` and
 `secrets.tfvars` and `vars-config.hcl` are configuration files used in Terraform and Terragrunt respectively.
 They can be used as follow:
 
-**secrets.tfvars**
+**env.hcl**
 ```hcl
 secret_value = "your_code"
 top_secret_value = "your_code"

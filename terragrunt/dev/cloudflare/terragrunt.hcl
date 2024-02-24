@@ -11,6 +11,8 @@ include "stage" {
 locals {
   root_config  = read_terragrunt_config(find_in_parent_folders("root-config.hcl"))
   stage_config = read_terragrunt_config(find_in_parent_folders("stage.hcl"))
+  current_terragrunt_dir = get_terragrunt_dir()
+  env_vars = read_terragrunt_config("${local.current_terragrunt_dir}/env.hcl")
 
   # merge tags
   local_tags = {
@@ -22,8 +24,8 @@ locals {
 
 inputs = {
   personal_cloudflare ={
-    zone_id   = "${get_env("TF_VAR_zone_id", "")}"
-    public_ip = "${get_env("TF_VAR_public_ip", "")}"
+    zone_id   = "${local.env_vars.locals.zone_id}"
+    public_ip = "${local.env_vars.locals.public_ip}"
   }
 }
 

@@ -55,3 +55,4 @@ vendor
 .terraform.lock.hcl
 secrets.tfvars
 vars-config.hcl
+env.hcl
