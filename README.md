@@ -1,6 +1,7 @@
 # Cloudflare Setup Project
 
 This project contains the Terraform and Terragrunt configurations for managing Homelab resources.
+Currently this is only for cloudflare records.
 
 ## Terraform
 
@@ -40,8 +41,10 @@ They can be used as follow:
 
 **env.hcl**
 ```hcl
-secret_value = "your_code"
-top_secret_value = "your_code"
+locals {
+    secret_value = "your_code"
+    top_secret_value = "your_code"
+}
 ```
 
 **vars-config.hcl**
